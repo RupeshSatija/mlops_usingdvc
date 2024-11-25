@@ -1,0 +1,11 @@
+_target_: src.datamodules.dogbreed_dataset.DogBreedDataModule
+
+# data:
+dir: ${paths.data_dir}/dogbreeds
+batch_size: 32
+num_workers: 0
+pin_memory: False
+train_val_test_split: [0.7, 0.2, 0.1]
+google_drive_id: "1WZ_H2GxgNr7_HWtJHgmy70d7R2_QMBZ2"
+image_size: 224
+crop_size: 224

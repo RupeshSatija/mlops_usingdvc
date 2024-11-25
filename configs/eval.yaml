@@ -1,0 +1,36 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - paths: default
+  - trainer: default
+  - data: dogbreed
+  - logger: tensorboard
+  # - override hydra/hydra_logging: disabled
+  # - override hydra/job_logging: disabled
+  # experiment configs allow for version control of specific hyperparameters
+  # e.g. best hyperparameters for given model and datamodule
+  - experiment: null
+
+task_name: "evaluate"
+
+# Path to the checkpoint file
+checkpoint_path: ???  # This needs to be specified when running the script
+
+data:
+  batch_size: 32
+  num_workers: 0
+
+trainer:
+  accelerator: "auto"
+
+# Hydra-specific configurations
+hydra:
+  output_subdir: null
+  run:
+    dir: .
+
+paths:
+  base_dir: ${hydra:runtime.cwd}
+  data_dir: data
+  log_dir: logs

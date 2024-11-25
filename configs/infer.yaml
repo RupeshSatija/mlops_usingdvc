@@ -1,0 +1,26 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - paths: default
+  - override hydra/hydra_logging: disabled
+  - override hydra/job_logging: disabled
+
+task_name: "infer"
+
+# Path to the checkpoint file
+ckpt_path: ???  # This needs to be specified when running the script
+
+# Input and output folders
+input_folder: ???
+output_folder: ???
+
+# Hydra-specific configurations
+hydra:
+  output_subdir: null
+  run:
+    dir: .
+
+paths:
+  log_dir: ${hydra:runtime.cwd}/logs
+
